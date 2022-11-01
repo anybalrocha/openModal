@@ -1,49 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(236, 234, 234);
-    padding: 40px;
-}
-
-.modal {
-    display: none;
-    position: fixed; 
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.4); /* Opacity */
-}
-
-.modalResult{
-    display: none;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div>
-        <button id="btnClickMe" onclick="openModal()" >Click Me</button>
+        <button id="btnClickMe" onclick="showModal()">Click Me</button>
     </div>
-
 
     <div id="myModal" class="modal">
         <div class="modal-content">
             <p>Are you sure you want to continue?</p>
+            <br>
             <button id="btnModalYes" onclick="modalOption('Yes')">Yes</button>
             <button id="btnModalCancel" onclick="modalOption('Cancel')">Cancel</button>
         </div>
@@ -53,22 +22,7 @@ body {
         <p>You just clicked "<span id="modalOption"></span>"</p>
     </div>
 
-
-<script>
-    var btn = document.getElementById("btnClickMe");
-    var modal = document.getElementById("myModal");
-    var resultModal = document.getElementById("resultModal");
-
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    function modalOption(modalOption) {
-        document.getElementById("modalOption").innerHTML = modalOption;
-        resultModal.style.display = "block";
-        modal.style.display = "none";
-    }
-</script>
+<script src="index.js"></script>
 
 </body>
 </html>
