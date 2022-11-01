@@ -2,9 +2,12 @@
 <html>
 <head>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(236, 234, 234);
+    padding: 40px;
+}
 
-/* The Modal (background) */
 .modal {
     display: none;
     position: fixed; 
@@ -17,7 +20,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
     background-color: rgba(0,0,0,0.4); /* Opacity */
 }
 
-/* Modal Content */
+.modalResult{
+    display: none;
+}
+
 .modal-content {
     background-color: #fefefe;
     margin: auto;
@@ -31,28 +37,36 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <body>
     <div>
-        <button id="btnClickMe" onclick="openModal()" class="modal-button">Click Me</button>
+        <button id="btnClickMe" onclick="openModal()" >Click Me</button>
     </div>
 
 
     <div id="myModal" class="modal">
         <div class="modal-content">
-          <p>Are you sure you want to continue?</p>
-          <button id="btnModalYes" onclick="modalOption('Yes')" class="modal-button">Yes</button>
-          <button id="btnModalCancel" onclick="modalOption('Cancel')" class="modal-button">Cancel</button>
+            <p>Are you sure you want to continue?</p>
+            <button id="btnModalYes" onclick="modalOption('Yes')">Yes</button>
+            <button id="btnModalCancel" onclick="modalOption('Cancel')">Cancel</button>
         </div>
-      </div>
+    </div>
+
+    <div id="resultModal" class="modalResult">
+        <p>You just clicked "<span id="modalOption"></span>"</p>
+    </div>
 
 
 <script>
     var btn = document.getElementById("btnClickMe");
     var modal = document.getElementById("myModal");
+    var resultModal = document.getElementById("resultModal");
+
     btn.onclick = function() {
         modal.style.display = "block";
     }
 
     function modalOption(modalOption) {
-        alert(modalOption);
+        document.getElementById("modalOption").innerHTML = modalOption;
+        resultModal.style.display = "block";
+        modal.style.display = "none";
     }
 </script>
 
